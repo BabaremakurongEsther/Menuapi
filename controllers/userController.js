@@ -6,7 +6,7 @@ const {generateToken} =require("../utils/generateToken");
 
 const createUser = async (req, res) =>{
 const {username, email, password} =req.body;
-const valid=await validate({username, email, password});
+const valid= await validate({username, email, password});
 if (valid) {
     const hashedPassword = await bcrypt.hash(valid.password, 10);
     const user =await User.create({
@@ -23,10 +23,6 @@ if (valid) {
     
     });
   }
-    res.status(201).json({
-        message: "user created successfully",
-        user,
-    });
 }else{
     res.status(400).json({
         message: "Invalid data",
