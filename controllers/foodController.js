@@ -37,7 +37,7 @@ const deleteMenu =async (req, menuIndex) => {
   });
 }
 // updates and existing menu item
-const updateMenu = (req) => {
+const updateMenu =async (req) => {
   const db = req.app.db;
   return getMenu(db)
   .then((menu) => {
